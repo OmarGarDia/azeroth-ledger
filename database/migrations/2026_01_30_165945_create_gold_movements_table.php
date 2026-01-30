@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('gold_movements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('character_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->enum('type', ['buy', 'sell']);
-            $table->unsignedBigInteger('price');
-            $table->unsignedBigInteger('quantity');
+            $table->foreignId('character_id')->constrained()->onDelete('cascade');
+            $table->foreignId('item_id')->nullable()->constrained()->onDelete('set null');
+            $table->integer('amount');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('gold_movements');
     }
 };

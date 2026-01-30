@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('expansion')->nullable();
-            $table->unsignedBigInteger('vendor_price')->nullable();
+            $table->string('type');
+            $table->integer('buy_price');
+            $table->integer('sell_price');
             $table->timestamps();
         });
     }
