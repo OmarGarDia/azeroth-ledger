@@ -18,4 +18,9 @@ class Character extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function goldMovements()
+    {
+        return $this->hasMany(GoldMovement::class);
+    }
 }

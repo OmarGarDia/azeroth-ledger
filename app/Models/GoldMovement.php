@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Item extends Model
+class GoldMovement extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'character_id',
+        'item_id',
+        'amount',
         'type',
-        'buy_price',
-        'sell_price',
     ];
 }
